@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DOM Changing</title>
+</head>
+<body>
+
+  <h1 id="Head">Hello, Everyone!</h1>
+  <p id="Para">I love Fullstacking!</p>
+
+  <script>
+    function update() {
+      var heading = document.getElementById("Head");
+      heading.innerHTML = "This is new Heading Content...";
+      var paragraph = document.getElementById("Para");
+      paragraph.innerHTML = "This is the updated paragraph content...";
+    }
+    window.onclick = update;
+  </script>
+
+</body>
+</html>

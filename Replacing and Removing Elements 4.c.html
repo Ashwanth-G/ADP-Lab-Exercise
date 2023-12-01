@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Replacement and Removal Values</title>
+    <style>
+        body {
+          font-family: 'Times New Roman';
+          margin: 20px;
+        }
+    
+        h1, h2 {
+          color: #333;
+          background-color: #eee;
+          padding: 10px;
+        }
+    
+        p {
+          color: #555;
+        }
+    
+        button {
+          padding: 8px;
+          font-size: 14px;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+    
+        button:hover {
+          background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="originalHeading">This is the Original Heading</h1>
+    <p id="originalPara">This is the Original Paragraph.</p>
+
+    <button onclick="replaceElements()">Replace Elements</button>
+    <button onclick="removeElements()">Remove Elements</button>
+
+    <script>
+    function replaceElements() {
+        var originalHeading = document.getElementById("originalHeading");
+
+         var newHeading = document.createElement("h2");
+         newHeading.textContent = "New Heading";
+
+         originalHeading.parentNode.replaceChild(newHeading, originalHeading);
+
+        var originalPara = document.getElementById("originalPara");
+
+        var newPara = document.createElement("p");
+        newPara.textContent = "This is the new paragraph.";
+
+        originalPara.parentNode.replaceChild(newPara, originalPara);
+    }
+
+    function removeElements() {
+        var originalHeading = document.getElementById("originalHeading");
+
+        originalHeading.parentNode.removeChild(originalHeading);
+
+        var originalPara = document.getElementById("originalPara");
+
+        originalPara.parentNode.removeChild(originalPara);
+    }
+    </script>
+</body>
+</html>

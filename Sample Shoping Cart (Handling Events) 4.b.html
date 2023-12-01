@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vaanga Shopping Pannuvom - Best and Fastest Delivery within minutes!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #cart {
+      margin-top: 20px;
+    }
+
+    #cartItems {
+      list-style: none;
+      padding: 0;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    #total {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <h1>Vaanga Shopping Pannuvom</h1>
+    <h3>India's Best and Fastest Delivery Site</h3>
+
+    <div class="product" id="product1">
+        <h2>Coca cola</h2>
+        <p>Price: Rs. 40</p>
+        <button onclick="addToCart('Coca Cola', 40)">Add to Cart</button>
+    </div>
+
+    <div class="product" id="product2">
+        <h2>Pepsi</h2>
+        <p>Price: 35</p>
+        <button onclick="addToCart('Pepsi', 35)">Add to Cart</button>
+    </div>
+
+    <div id="cart">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cartItems"></ul>
+        <h3 id="total">Total: Rs. 0</h3>
+        <button onclick="emptyCart()">Empty Cart</button>
+    </div>
+
+    <p id="output">Your Grand Total will appear here...</p>
+
+    <script>
+        var totalAmount = 0;
+        var GST = 22;
+
+        function addToCart(productName, price) {
+        var outputElement = document.getElementById("output");
+        outputElement.textContent = productName + " added to cart. Price: Rs. " + price;
+
+        var Elements = document.getElementById("cartItems");  
+        var listItem = document.createElement("li");
+        listItem.textContent = productName + "  -  Rs. " + price;
+        Elements.appendChild(listItem);
+
+        totalAmount += price;
+        totalAmount += GST;
+        var totalElement = document.getElementById("total");
+        totalElement.textContent = "Grand Total: Rs. " + totalAmount;
+        }
+        function emptyCart() {
+            var Elements = document.getElementById("cartItems");
+            Elements.innerHTML = '';
+
+            totalAmount = 0;
+            var totalElement = document.getElementById("total");
+            totalElement.textContent = "Grand Total: Rs. 0";
+
+             var outputElement = document.getElementById("output");
+            outputElement.textContent = "Cart emptied!";
+        }
+    </script>
+</body>
+</html>
